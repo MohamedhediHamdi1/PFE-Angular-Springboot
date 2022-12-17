@@ -11,8 +11,7 @@ public class UserEntity implements Serializable{
 
 	private static final long serialVersionUID = -8704195227248241243L;
 	
-	@Id()
-	@GeneratedValue
+	@Id
 	private long id;
 	
 	@Column(nullable=false)
@@ -23,7 +22,9 @@ public class UserEntity implements Serializable{
 	@Column(nullable=false, length =20,unique=true)
 	private String username;
 
-
+	private String country;
+	private String nb_ads;
+	private String options1;
 
 	@NotNull
 	private Boolean admin;
@@ -36,6 +37,9 @@ public class UserEntity implements Serializable{
 	@NotNull
 	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
 	private ContactEntity contact;
+
+	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+	private PnlEntity pnl;
 
 
 
@@ -100,8 +104,39 @@ public class UserEntity implements Serializable{
 		this.admin = admin;
 	}
 
+	public String getCountry() {
+		return country;
+	}
 
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
+	public String getNb_ads() {
+		return nb_ads;
+	}
 
+	public void setNb_ads(String nb_ads) {
+		this.nb_ads = nb_ads;
+	}
 
+	public String getOptions1(String options1) {
+		return this.options1;
+	}
+
+	public void setOptions1(String options1) {
+		this.options1 = options1;
+	}
+
+	public String getOptions1() {
+		return options1;
+	}
+
+	public PnlEntity getPnl() {
+		return pnl;
+	}
+
+	public void setPnl(PnlEntity pnl) {
+		this.pnl = pnl;
+	}
 }

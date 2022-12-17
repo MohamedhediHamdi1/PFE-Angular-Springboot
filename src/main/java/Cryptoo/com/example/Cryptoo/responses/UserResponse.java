@@ -8,7 +8,13 @@ public class UserResponse {
 
 	private Boolean admin;
 
+	private String country;
+	private String nb_ads;
+	private String options1;
+
 	private ContactRsponse contact;
+
+	private PnlResponse pnl;
 
 
 	public String getUsername() {
@@ -43,5 +49,33 @@ public class UserResponse {
 		this.admin = admin;
 	}
 
+	public String getCountry() {
+		return country;
+	}
 
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getNb_ads() {
+		return nb_ads;
+	}
+
+	public void setNb_ads(String nb_ads) {
+		this.nb_ads = nb_ads;
+	}
+
+	public String getOptions1() {
+		return options1;
+	}
+
+	public void setOptions1(String options1) {
+		this.options1 = options1;
+	}
+	public PnlResponse getPnl() {
+		return pnl;
+	}
+	public void setPnl(PnlResponse pnl) {
+		this.pnl = pnl;
+	}
 }

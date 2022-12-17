@@ -1,5 +1,4 @@
 package Cryptoo.com.example.Cryptoo.controllers;
-
 import Cryptoo.com.example.Cryptoo.requests.UserRequest;
 import Cryptoo.com.example.Cryptoo.responses.UserResponse;
 import Cryptoo.com.example.Cryptoo.services.UserService;
@@ -10,11 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-
 @CrossOrigin(origins ="*")
 @RestController
 @RequestMapping("/users") // Localhost:8080/users
@@ -24,7 +21,7 @@ public class UserController {
 	UserService userService;
 	
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<UserResponse> getUser(@PathVariable String id) {
+	public ResponseEntity<UserResponse> getUser(@PathVariable long id) {
 		UserDto userDto = userService.getUserByUserId(id);
 		UserResponse userResponse = new UserResponse();
 		BeanUtils.copyProperties(userDto, userResponse);
@@ -62,6 +59,25 @@ public class UserController {
 		UserResponse userResponse = modelMapper.map(createUser, UserResponse.class);
 		
 		return new ResponseEntity<UserResponse>( userResponse,HttpStatus.CREATED);
+	}
+
+
+	@PutMapping(path="/{id}")
+	public ResponseEntity<UserResponse> updateUser(@PathVariable long id, @RequestBody UserRequest userRequest) {
+
+		System.out.println("WAtched_Ad");
+
+		UserDto userDto = new UserDto();
+
+		BeanUtils.copyProperties(userRequest, userDto);
+
+		UserDto updateUser = userService.updateUser(id, userDto);
+
+		UserResponse userResponse = new UserResponse();
+
+		BeanUtils.copyProperties(updateUser, userResponse);
+
+		return new ResponseEntity<UserResponse>(userResponse, HttpStatus.ACCEPTED);
 	}
 	
 

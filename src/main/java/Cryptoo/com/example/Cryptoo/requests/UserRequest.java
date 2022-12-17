@@ -19,7 +19,13 @@ public class UserRequest {
 
 	private Boolean admin;
 
+	private String country;
+	private String nb_ads;
+	private String options1;
+
 	private ContactRequest contact;
+
+	private PnlRequest pnl;
 
 	public String getUsername() {
 		return username;
@@ -52,6 +58,35 @@ public class UserRequest {
 		this.admin = admin;
 	}
 
+	public String getCountry() {
+		return country;
+	}
 
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
+	public String getNb_ads() {
+		return nb_ads;
+	}
+
+	public void setNb_ads(String nb_ads) {
+		this.nb_ads = nb_ads;
+	}
+
+	public String getOptions1() {
+		return options1;
+	}
+
+	public void setOptions1(String options1) {
+		this.options1 = options1;
+	}
+
+	public PnlRequest getPnl() {
+		return pnl;
+	}
+
+	public void setPnl(PnlRequest pnl) {
+		this.pnl = pnl;
+	}
 }

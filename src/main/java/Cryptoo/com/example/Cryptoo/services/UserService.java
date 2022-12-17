@@ -11,7 +11,9 @@ UserDto createUser(UserDto user);
 
 UserDto getUser(String email);
 
-UserDto getUserByUserId(String userId);
+UserDto getUserByUserId(long userId);
+
+    UserDto updateUser(long id, UserDto userDto);
 
 void deleteUser(String userId);
 

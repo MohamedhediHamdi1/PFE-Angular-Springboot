@@ -48,6 +48,23 @@ public class ContactRsponse {
     private Double liqprice2;
     private Double liqprice3;
 
+    private Boolean typeoftrade1;
+    private Boolean typeoftrade2;
+    private Boolean typeoftrade3;
+
+    private Boolean order4;
+    private Boolean position4;
+    private String entryPrice4;
+    private String takeProfit4;
+    private String stopLoss4;
+    private String pair4;
+    private Double leverage4;
+    private Boolean longorshort4;
+    private Double quantity4;
+    private Double liqprice4;
+    private String order4time;
+    private Boolean typeoftrade4;
+
     public int getNombreoftrade() {
         return nombreoftrade;
     }
@@ -334,5 +351,125 @@ public class ContactRsponse {
 
     public void setOrder3time(String order3time) {
         this.order3time = order3time;
+    }
+
+    public Boolean getTypeoftrade1() {
+        return typeoftrade1;
+    }
+
+    public void setTypeoftrade1(Boolean typeoftrade1) {
+        this.typeoftrade1 = typeoftrade1;
+    }
+
+    public Boolean getTypeoftrade2() {
+        return typeoftrade2;
+    }
+
+    public void setTypeoftrade2(Boolean typeoftrade2) {
+        this.typeoftrade2 = typeoftrade2;
+    }
+
+    public Boolean getTypeoftrade3() {
+        return typeoftrade3;
+    }
+
+    public void setTypeoftrade3(Boolean typeoftrade3) {
+        this.typeoftrade3 = typeoftrade3;
+    }
+
+    public Boolean getOrder4() {
+        return order4;
+    }
+
+    public void setOrder4(Boolean order4) {
+        this.order4 = order4;
+    }
+
+    public Boolean getPosition4() {
+        return position4;
+    }
+
+    public void setPosition4(Boolean position4) {
+        this.position4 = position4;
+    }
+
+    public String getEntryPrice4() {
+        return entryPrice4;
+    }
+
+    public void setEntryPrice4(String entryPrice4) {
+        this.entryPrice4 = entryPrice4;
+    }
+
+    public String getTakeProfit4() {
+        return takeProfit4;
+    }
+
+    public void setTakeProfit4(String takeProfit4) {
+        this.takeProfit4 = takeProfit4;
+    }
+
+    public String getStopLoss4() {
+        return stopLoss4;
+    }
+
+    public void setStopLoss4(String stopLoss4) {
+        this.stopLoss4 = stopLoss4;
+    }
+
+    public String getPair4() {
+        return pair4;
+    }
+
+    public void setPair4(String pair4) {
+        this.pair4 = pair4;
+    }
+
+    public Double getLeverage4() {
+        return leverage4;
+    }
+
+    public void setLeverage4(Double leverage4) {
+        this.leverage4 = leverage4;
+    }
+
+    public Boolean getLongorshort4() {
+        return longorshort4;
+    }
+
+    public void setLongorshort4(Boolean longorshort4) {
+        this.longorshort4 = longorshort4;
+    }
+
+    public Double getQuantity4() {
+        return quantity4;
+    }
+
+    public void setQuantity4(Double quantity4) {
+        this.quantity4 = quantity4;
+    }
+
+    public Double getLiqprice4() {
+        return liqprice4;
+    }
+
+    public void setLiqprice4(Double liqprice4) {
+        this.liqprice4 = liqprice4;
+    }
+
+    public String getOrder4time() {
+        return order4time;
+    }
+
+    public void setOrder4time(String order4time) {
+        this.order4time = order4time;
+    }
+
+    public Boolean getTypeoftrade4() {
+        return typeoftrade4;
+    }
+
+    public void setTypeoftrade4(Boolean typeoftrade4) {
+        this.typeoftrade4 = typeoftrade4;
     }
 }

@@ -7,16 +7,24 @@
 		<version>2.7.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>Cryptoo.com.example</groupId>
+	<groupId>Cryptoo.com.example.Cryptoo</groupId>
 	<artifactId>Cryptoo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Cryptoo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<start-class>Cryptoo.com.example.Cryptoo</start-class>
+		<start-class>Cryptoo.com.example.Cryptoo.Cryptoo</start-class>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
+		<dependency>
+			<groupId>org.java-websocket</groupId>
+			<artifactId>Java-WebSocket</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/jakarta.json/jakarta.json-api -->
@@ -135,6 +143,21 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.vaadin.external.google</groupId>
+			<artifactId>android-json</artifactId>
+			<version>0.0.20131108.vaadin1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-codec-http</artifactId>
+			<version>4.1.84.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>net.minidev</groupId>
+			<artifactId>json-smart</artifactId>
+			<version>2.4.8</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -145,5 +168,7 @@
 			</plugin>
 		</plugins>
 	</build>
+
+
 
 </project>

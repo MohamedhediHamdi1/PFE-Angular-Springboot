@@ -22,10 +22,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-	
-	
-	
+
+
 
 	private final AuthenticationManager authenticationManager;
 
@@ -37,7 +37,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
 			throws AuthenticationException {
 		try {
-
 			UserLoginRequest creds = new ObjectMapper().readValue(req.getInputStream(), UserLoginRequest.class);
 
 			return authenticationManager.authenticate(
@@ -66,12 +65,16 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	        UserService userService = (UserService)SpringApplicationContext.getBean("userServiceimpl");
 	        
 	        UserDto userDto = userService.getUser(userName);
-	        
-	        
-	       
+
+
 	        res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
-	        res.addHeader("user id", userDto.getUserId());
+	        res.addHeader("userid", userDto.getUserId());
+	        res.addHeader("useridd", String.valueOf(userDto.getId()));
+
+
+
 	       
 
 	    }  
 }
+

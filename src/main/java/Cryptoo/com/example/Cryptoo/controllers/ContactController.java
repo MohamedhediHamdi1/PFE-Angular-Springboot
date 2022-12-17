@@ -26,19 +26,25 @@ public class ContactController {
     }
 
     @PutMapping("/wallet/{id}")
-    public ResponseEntity<ContactRsponse> updateWallet(@PathVariable(name="id") String contactId,@RequestBody ContactRequest contactRequest) {
+    public ResponseEntity<String> updateWallet(@PathVariable(name="id") String contactId,@RequestBody ContactRequest contactRequest) {
         ContactDto contactDto = new ContactDto();
         BeanUtils.copyProperties(contactRequest, contactDto);
         ContactDto updateWallet = contactService.updateWallet(contactId,contactDto);
-        ContactRsponse contactRsponse = new ContactRsponse();
-        BeanUtils.copyProperties(updateWallet,contactRsponse);
-
-
-        return new ResponseEntity<ContactRsponse>(contactRsponse, HttpStatus.ACCEPTED);
+        //ContactRsponse contactRsponse = new ContactRsponse();
+        //BeanUtils.copyProperties(updateWallet,contactRsponse);
+        return new ResponseEntity<String>("done", HttpStatus.ACCEPTED);
     }
     @GetMapping(path = "/{id}")
     public ResponseEntity<ContactRsponse> getContact(@PathVariable String id){
         ContactDto contactDto = contactService.getContact(id);
+        ContactRsponse contactRsponse =new ContactRsponse();
+        BeanUtils.copyProperties(contactDto,contactRsponse);
+        return new ResponseEntity<ContactRsponse>( contactRsponse,HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/id/{id}")
+    public ResponseEntity<ContactRsponse> getContact1(@PathVariable Long id){
+        ContactDto contactDto = contactService.getContact1(id);
         ContactRsponse contactRsponse =new ContactRsponse();
         BeanUtils.copyProperties(contactDto,contactRsponse);
         return new ResponseEntity<ContactRsponse>( contactRsponse,HttpStatus.OK);
