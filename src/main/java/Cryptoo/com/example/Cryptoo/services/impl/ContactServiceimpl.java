@@ -270,7 +270,7 @@ public class ContactServiceimpl implements ContactService {
     }
 
 
-   // @Scheduled(fixedDelay = 2000)
+    @Scheduled(fixedDelay = 2000)
     public void manageOrder(){
         System.out.println("running : "+ ConectedUser.counter);
 /*******************************************----MANAGEORDER----***************************************************************/
