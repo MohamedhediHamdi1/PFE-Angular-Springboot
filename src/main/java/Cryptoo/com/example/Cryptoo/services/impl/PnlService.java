@@ -30,14 +30,14 @@ public class PnlService implements  Pnl_service{
             = DateTimeFormatter.ofPattern("dd");
     String today= formatter1.format(localDate1);
 
-    @Scheduled(fixedDelay = 4000)
+    @Scheduled(fixedDelay = 300000)
     public void check_date(){
+	System.out.println("Check Time");
         ZonedDateTime localDate = ZonedDateTime.now(ZoneId.of("GMT"));
         DateTimeFormatter formatter
                 = DateTimeFormatter.ofPattern("dd");
         String day= formatter.format(localDate);
         if(day.equals(today)==false){
-            System.out.println(day+today);
             long count = pnlRepository.count();
             for(int i=1;i<count+1;i++){
                String j = String.valueOf(i);
@@ -54,5 +54,4 @@ public class PnlService implements  Pnl_service{
             }
         }
     }
-
 }

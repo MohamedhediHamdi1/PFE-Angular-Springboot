@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: Cryptoo.com.example.Cryptoo.Cryptoo
+

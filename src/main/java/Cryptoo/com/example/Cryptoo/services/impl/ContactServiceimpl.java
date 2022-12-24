@@ -10,7 +10,6 @@ import Cryptoo.com.example.Cryptoo.services.ContactService;
 import Cryptoo.com.example.Cryptoo.shared.dto.ContactDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -271,7 +270,7 @@ public class ContactServiceimpl implements ContactService {
     }
 
 
-    @Scheduled(fixedDelay = 2000)
+   // @Scheduled(fixedDelay = 2000)
     public void manageOrder(){
         System.out.println("running : "+ ConectedUser.counter);
 /*******************************************----MANAGEORDER----***************************************************************/
