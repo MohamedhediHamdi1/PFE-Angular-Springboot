@@ -4,6 +4,7 @@ import net.minidev.json.JSONObject;
 import net.minidev.json.JSONValue;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -295,7 +296,7 @@ public class BtcPrice {
     }
 
 
-    //@Scheduled(fixedDelay = 1800)
+    @Scheduled(fixedDelay = 1800)
     public void manageOrder() throws InterruptedException {
         ConnectToWebSocket("btc");
         ConnectToWebSocket1("eth");
