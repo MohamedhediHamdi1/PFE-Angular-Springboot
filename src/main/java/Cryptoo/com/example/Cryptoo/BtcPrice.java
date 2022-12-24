@@ -295,7 +295,7 @@ public class BtcPrice {
     }
 
 
-    //@Scheduled(fixedDelay = 1800)
+    @Scheduled(fixedDelay = 1800)
     public void manageOrder() throws InterruptedException {
         ConnectToWebSocket("btc");
         ConnectToWebSocket1("eth");
