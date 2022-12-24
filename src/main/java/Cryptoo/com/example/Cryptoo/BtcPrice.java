@@ -2,6 +2,7 @@ package Cryptoo.com.example.Cryptoo;
 
 import net.minidev.json.JSONObject;
 import net.minidev.json.JSONValue;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.springframework.stereotype.Service;
