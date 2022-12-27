@@ -1,5 +1,6 @@
 package Cryptoo.com.example.Cryptoo.services.impl;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import Cryptoo.com.example.Cryptoo.BtcPrice;
 import Cryptoo.com.example.Cryptoo.controllers.ConectedUser;
 import Cryptoo.com.example.Cryptoo.entities.ContactEntity;
