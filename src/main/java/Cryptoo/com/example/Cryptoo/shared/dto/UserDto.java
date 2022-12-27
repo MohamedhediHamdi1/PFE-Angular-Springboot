@@ -26,6 +26,8 @@ public class UserDto implements Serializable{
 
 	private PnlDto pnl;
 
+	private HistoryDto history;
+
 
 
 
@@ -111,4 +113,13 @@ public class UserDto implements Serializable{
 	public void setPnl(PnlDto pnl) {
 		this.pnl = pnl;
 	}
+
+	public HistoryDto getHistory() {
+		return history;
+	}
+
+	public void setHistory(HistoryDto history) {
+		this.history = history;
+	}
+
 }

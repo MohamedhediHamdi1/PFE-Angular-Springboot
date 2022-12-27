@@ -47,6 +47,8 @@ public class UserServiceimpl implements UserService {
 		user.getContact().setUser(user);
 		user.getPnl().setPnlid(String.valueOf(userRepository.count()+1));
 		user.getPnl().setUser(user);
+		user.getHistory().setHistoryid(userRepository.count()+1);
+		user.getHistory().setUser(user);
 		ModelMapper modelMapper = new ModelMapper();
 		UserEntity userEntity = modelMapper.map(user, UserEntity.class);
 		userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(user.getPassword()));

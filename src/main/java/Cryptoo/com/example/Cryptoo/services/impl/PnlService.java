@@ -37,7 +37,7 @@ public class PnlService implements  Pnl_service{
         DateTimeFormatter formatter
                 = DateTimeFormatter.ofPattern("dd");
         String day= formatter.format(localDate);
-        if(day.equals(today)==false){
+        if(day.equals(today)!=false){
             long count = pnlRepository.count();
             for(int i=1;i<count+1;i++){
                String j = String.valueOf(i);

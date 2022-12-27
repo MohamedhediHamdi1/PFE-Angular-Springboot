@@ -86,6 +86,7 @@ public class ContactEntity implements Serializable {
     private Double liqprice4;
     private String order4time;
     private Boolean typeoftrade4;
+    private String timezone;
 
     public int getNombreoftrade() {
         return nombreoftrade;
@@ -524,4 +525,11 @@ public class ContactEntity implements Serializable {
     }
 
 
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
 }

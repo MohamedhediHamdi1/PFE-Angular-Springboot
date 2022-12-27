@@ -66,6 +66,8 @@ public class ContactRequest {
     private Boolean typeoftrade4;
 
 
+    private String timezone;
+
     public int getNombreoftrade() {
         return nombreoftrade;
     }
@@ -464,5 +466,13 @@ public class ContactRequest {
 
     public void setTypeoftrade4(Boolean typeoftrade4) {
         this.typeoftrade4 = typeoftrade4;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
     }
 }

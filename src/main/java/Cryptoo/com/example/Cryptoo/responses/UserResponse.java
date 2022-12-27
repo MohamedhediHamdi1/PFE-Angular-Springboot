@@ -16,6 +16,8 @@ public class UserResponse {
 
 	private PnlResponse pnl;
 
+	private HistoryResponse history;
+
 
 	public String getUsername() {
 		return username;
@@ -78,4 +80,13 @@ public class UserResponse {
 	public void setPnl(PnlResponse pnl) {
 		this.pnl = pnl;
 	}
+
+	public HistoryResponse getHistory() {
+		return history;
+	}
+
+	public void setHistory(HistoryResponse history) {
+		this.history = history;
+	}
+
 }

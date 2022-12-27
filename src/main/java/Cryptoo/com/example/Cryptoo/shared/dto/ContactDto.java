@@ -71,6 +71,8 @@ public class ContactDto {
 
     private int nombreoftrade;
 
+    private String timezone;
+
     public int getNombreoftrade() {
         return nombreoftrade;
     }
@@ -495,5 +497,13 @@ public class ContactDto {
 
     public void setTypeoftrade4(Boolean typeoftrade4) {
         this.typeoftrade4 = typeoftrade4;
+    }
+
+    public String getTimezone() {
+        return timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
     }
 }

@@ -46,7 +46,6 @@ public class UserController {
 	
 	@PostMapping
 	public ResponseEntity<UserResponse> createUser(@Valid @RequestBody  UserRequest userRequest) throws Exception{
-
 		//UserDto userDto = new UserDto();
 		ModelMapper modelMapper = new ModelMapper();
 		UserDto userDto = modelMapper.map(userRequest, UserDto.class);

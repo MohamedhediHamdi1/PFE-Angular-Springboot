@@ -3,8 +3,10 @@ package Cryptoo.com.example.Cryptoo.services.impl;
 import Cryptoo.com.example.Cryptoo.BtcPrice;
 import Cryptoo.com.example.Cryptoo.controllers.ConectedUser;
 import Cryptoo.com.example.Cryptoo.entities.ContactEntity;
+import Cryptoo.com.example.Cryptoo.entities.HistoryEntity;
 import Cryptoo.com.example.Cryptoo.entities.PnlEntity;
 import Cryptoo.com.example.Cryptoo.repositories.ContactRepository;
+import Cryptoo.com.example.Cryptoo.repositories.HistoryRepository;
 import Cryptoo.com.example.Cryptoo.repositories.PnlRepository;
 import Cryptoo.com.example.Cryptoo.services.ContactService;
 import Cryptoo.com.example.Cryptoo.shared.dto.ContactDto;
@@ -20,6 +22,9 @@ public class ContactServiceimpl implements ContactService {
 
     @Autowired
     ContactRepository contactRepository;
+
+    @Autowired
+    HistoryRepository historyRepository;
 
     @Autowired
     PnlRepository pnlRepository;
@@ -411,6 +416,12 @@ public class ContactServiceimpl implements ContactService {
                     PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
                     pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
                     pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort1()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity1= HistoryService.historyupdate(contactEntity.getPair1(),contactEntity.getEntryPrice1(),Double.toString(price1),contactEntity.getOrder1time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity1()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity1);
                     contactEntity.setEntryPrice1("0");
                     contactEntity.setTakeProfit1("0");
                     contactEntity.setStopLoss1("0");
@@ -431,6 +442,12 @@ public class ContactServiceimpl implements ContactService {
                     PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
                     pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
                     pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort1()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity1= HistoryService.historyupdate(contactEntity.getPair1(),contactEntity.getEntryPrice1(),Double.toString(price1),contactEntity.getOrder1time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity1()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity1);
                     contactEntity.setEntryPrice1("0");
                     contactEntity.setTakeProfit1("0");
                     contactEntity.setStopLoss1("0");
@@ -457,6 +474,15 @@ public class ContactServiceimpl implements ContactService {
                     double quantity2=contactEntity.getQuantity2();  //Maker fee
                     pnl = ((close_price2-entryPrice2)/entryPrice2)*quantity2*contactEntity.getLeverage2();
                     contactEntity.setWallet(wallet+pnl+quantity2);
+                    PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
+                    pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
+                    pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort2()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity2= HistoryService.historyupdate(contactEntity.getPair2(),contactEntity.getEntryPrice2(),Double.toString(price2),contactEntity.getOrder2time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity2()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity2);
                     contactEntity.setEntryPrice2("0");
                     contactEntity.setTakeProfit2("0");
                     contactEntity.setStopLoss2("0");
@@ -474,6 +500,15 @@ public class ContactServiceimpl implements ContactService {
                     double quantity2=contactEntity.getQuantity2();
                     pnl = ((entryPrice2-close_price2)/entryPrice2)*quantity2*contactEntity.getLeverage2();
                     contactEntity.setWallet(wallet+pnl+quantity2);
+                    PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
+                    pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
+                    pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort2()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity2= HistoryService.historyupdate(contactEntity.getPair2(),contactEntity.getEntryPrice2(),Double.toString(price2),contactEntity.getOrder2time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity2()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity2);
                     contactEntity.setEntryPrice2("0");
                     contactEntity.setTakeProfit2("0");
                     contactEntity.setStopLoss2("0");
@@ -501,6 +536,15 @@ public class ContactServiceimpl implements ContactService {
                     double quantity3=contactEntity.getQuantity3();  //Maker fee
                     pnl = ((close_price3-entryPrice3)/entryPrice3)*quantity3*contactEntity.getLeverage3();
                     contactEntity.setWallet(wallet+pnl+quantity3);
+                    PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
+                    pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
+                    pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort3()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity3= HistoryService.historyupdate(contactEntity.getPair3(),contactEntity.getEntryPrice3(),Double.toString(price3),contactEntity.getOrder3time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity3()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity3);
                     contactEntity.setEntryPrice3("0");
                     contactEntity.setTakeProfit3("0");
                     contactEntity.setStopLoss3("0");
@@ -518,6 +562,15 @@ public class ContactServiceimpl implements ContactService {
                     double quantity3=contactEntity.getQuantity3();
                     pnl = ((entryPrice3-close_price3)/entryPrice3)*quantity3*contactEntity.getLeverage3();
                     contactEntity.setWallet(wallet+pnl+quantity3);
+                    PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
+                    pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
+                    pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort3()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity3= HistoryService.historyupdate(contactEntity.getPair3(),contactEntity.getEntryPrice3(),Double.toString(price3),contactEntity.getOrder3time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity3()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity3);
                     contactEntity.setEntryPrice3("0");
                     contactEntity.setTakeProfit3("0");
                     contactEntity.setStopLoss3("0");
@@ -544,6 +597,15 @@ public class ContactServiceimpl implements ContactService {
                     double quantity4=contactEntity.getQuantity4();  //Maker fee
                     pnl = ((close_price4-entryPrice4)/entryPrice4)*quantity4*contactEntity.getLeverage4();
                     contactEntity.setWallet(wallet+pnl+quantity4);
+                    PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
+                    pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
+                    pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort4()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity4= HistoryService.historyupdate(contactEntity.getPair4(),contactEntity.getEntryPrice4(),Double.toString(price4),contactEntity.getOrder4time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity4()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity4);
                     contactEntity.setEntryPrice4("0");
                     contactEntity.setTakeProfit4("0");
                     contactEntity.setStopLoss4("0");
@@ -561,6 +623,15 @@ public class ContactServiceimpl implements ContactService {
                     double quantity4=contactEntity.getQuantity4();
                     pnl = ((entryPrice4-close_price4)/entryPrice4)*quantity4*contactEntity.getLeverage4();
                     contactEntity.setWallet(wallet+pnl+quantity4);
+                    PnlEntity pnlEntity=pnlRepository.findByPnlid(String.valueOf(i));
+                    pnlEntity.setDay7(pnlEntity.getDay7()+pnl);
+                    pnlRepository.save(pnlEntity);
+                    String ss=HistoryService.country_time(contactEntity.getTimezone());
+                    HistoryEntity historyEntity= historyRepository.findById((long) i).get();
+                    String longorshort;
+                    if(contactEntity.getLongorshort4()==true){longorshort="Buy";}else{longorshort="Sell";}
+                    HistoryEntity historyEntity4= HistoryService.historyupdate(contactEntity.getPair4(),contactEntity.getEntryPrice4(),Double.toString(price4),contactEntity.getOrder4time(),ss,Double.toString(pnl),Double.toString(contactEntity.getQuantity4()),longorshort,historyEntity);
+                    historyRepository.save(historyEntity4);
                     contactEntity.setEntryPrice4("0");
                     contactEntity.setTakeProfit4("0");
                     contactEntity.setStopLoss4("0");

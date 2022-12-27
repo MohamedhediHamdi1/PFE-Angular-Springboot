@@ -41,6 +41,11 @@ public class UserEntity implements Serializable{
 	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
 	private PnlEntity pnl;
 
+	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+	private HistoryEntity history;
+
+
+
 
 
 
@@ -139,4 +144,14 @@ public class UserEntity implements Serializable{
 	public void setPnl(PnlEntity pnl) {
 		this.pnl = pnl;
 	}
+
+	public HistoryEntity getHistory() {
+		return history;
+	}
+
+	public void setHistory(HistoryEntity history) {
+		this.history = history;
+	}
+
+
 }

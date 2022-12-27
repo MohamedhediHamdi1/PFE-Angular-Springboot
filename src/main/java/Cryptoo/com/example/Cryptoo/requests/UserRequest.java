@@ -1,18 +1,16 @@
 package Cryptoo.com.example.Cryptoo.requests;
 
 
+import Cryptoo.com.example.Cryptoo.responses.PnlResponse;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserRequest {
-
-
 	//@Pattern(regexp = " [A-Z0-9]+")
 	@NotNull(message = "CE champ est obligatoire")
 	private String username;
-	
-
 	@Size(min=8,max=20,message = "Min 8 charecter")
 	@Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$",message = "Wrong password format")
 	private String password;
@@ -23,9 +21,12 @@ public class UserRequest {
 	private String nb_ads;
 	private String options1;
 
+
 	private ContactRequest contact;
 
-	private PnlRequest pnl;
+	private PnlResponse pnl;
+
+	private HistoryRequest history;
 
 	public String getUsername() {
 		return username;
@@ -82,11 +83,20 @@ public class UserRequest {
 		this.options1 = options1;
 	}
 
-	public PnlRequest getPnl() {
+	public PnlResponse getPnl() {
 		return pnl;
 	}
 
-	public void setPnl(PnlRequest pnl) {
+	public void setPnl(PnlResponse pnl) {
 		this.pnl = pnl;
 	}
+
+	public HistoryRequest getHistory() {
+		return history;
+	}
+
+	public void setHistory(HistoryRequest history) {
+		this.history = history;
+	}
+
 }
