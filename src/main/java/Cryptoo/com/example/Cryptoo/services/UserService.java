@@ -3,22 +3,23 @@ package Cryptoo.com.example.Cryptoo.services;
 import Cryptoo.com.example.Cryptoo.shared.dto.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
-
 public interface UserService extends UserDetailsService{
 	
 UserDto createUser(UserDto user);
 
-UserDto getUser(String email);
 
-UserDto getUserByUserId(long userId);
 
-    UserDto updateUser(long id, UserDto userDto);
+    UserDto getUser(String email);
+
+UserDto getUserByUserId(String userId);
+
+    void updateUser(String id, UserDto userDto);
 
 void deleteUser(String userId);
+    boolean getPaswword(String email,String password);
 
 
-
-List<UserDto> getUsers(int page,int limit,String search);
+    boolean checkMessages(String userId);
+    boolean checkNotifications(String userId);
 
 }

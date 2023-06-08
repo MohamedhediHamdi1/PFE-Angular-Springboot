@@ -14,7 +14,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**").allowedMethods("*").allowedOrigins("*");
 
     }
-
     /*@Configuration
     public class ApplicationNoSecurity {
 

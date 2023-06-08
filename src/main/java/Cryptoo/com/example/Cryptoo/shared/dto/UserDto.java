@@ -1,6 +1,7 @@
 package Cryptoo.com.example.Cryptoo.shared.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class UserDto implements Serializable{
 	
@@ -8,78 +9,100 @@ public class UserDto implements Serializable{
 	private static final long serialVersionUID = -8905386225630855095L;
 	
 	private long id;
+
 	private String userId;
-	private String username;
-
-	private Boolean admin;
-
-	private String country;
-	private String nb_ads;
-	private String options1;
-
-
-
+	private String email;
 	private String password;
-	private String encryptedPassword;
+	private String firstname;
+	private String lastname;
+	private String imageId;
+	private String phone;
+	private String country;
+	private String state;
+	private String city;
+	private String zipcode;
+	private String address1;
+	private String address2;
+	private String prestataireID;
+	private boolean membership;
 
-	private ContactDto contact;
+	private int LoginAttempts;
+	private Date lastLoginAttempt;
 
-	private PnlDto pnl;
+	public boolean isMembership() {
+		return membership;
+	}
 
-	private HistoryDto history;
+	public int getLoginAttempts() {
+		return LoginAttempts;
+	}
 
+	public void setLoginAttempts(int loginAttempts) {
+		LoginAttempts = loginAttempts;
+	}
 
+	public Date getLastLoginAttempt() {
+		return lastLoginAttempt;
+	}
 
-
+	public void setLastLoginAttempt(Date lastLoginAttempt) {
+		this.lastLoginAttempt = lastLoginAttempt;
+	}
 
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getEncryptedPassword() {
-		return encryptedPassword;
-	}
-	public void setEncryptedPassword(String encryptedPassword) {
-		this.encryptedPassword = encryptedPassword;
+
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public String getUsername() {
-		return username;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public ContactDto getContact() {
-		return contact;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public void setContact(ContactDto contact) {
-		this.contact = contact;
+	public String getPhone() {
+		return phone;
 	}
 
-	public Boolean getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getCountry() {
@@ -90,36 +113,67 @@ public class UserDto implements Serializable{
 		this.country = country;
 	}
 
-	public String getNb_ads() {
-		return nb_ads;
+	public String getState() {
+		return state;
 	}
 
-	public void setNb_ads(String nb_ads) {
-		this.nb_ads = nb_ads;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public String getOptions1() {
-		return options1;
+	public String getCity() {
+		return city;
 	}
 
-	public void setOptions1(String options1) {
-		this.options1 = options1;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public PnlDto getPnl() {
-		return pnl;
+	public String getZipcode() {
+		return zipcode;
 	}
 
-	public void setPnl(PnlDto pnl) {
-		this.pnl = pnl;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
-	public HistoryDto getHistory() {
-		return history;
+	public String getAddress1() {
+		return address1;
 	}
 
-	public void setHistory(HistoryDto history) {
-		this.history = history;
+	public void setAddress1(String address1) {
+		this.address1 = address1;
 	}
 
+	public String getAddress2() {
+		return address2;
+	}
+
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+
+	public String getPrestataireID() {
+		return prestataireID;
+	}
+
+	public void setPrestataireID(String prestataireID) {
+		this.prestataireID = prestataireID;
+	}
+
+	public boolean getMembership() {
+		return membership;
+	}
+
+	public void setMembership(boolean membership) {
+		this.membership = membership;
+	}
+
+	public String getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
 }

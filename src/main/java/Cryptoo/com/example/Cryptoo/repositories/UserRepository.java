@@ -11,13 +11,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends PagingAndSortingRepository< UserEntity, Long> {
 	
-	UserEntity findByUsername(String username);
+	UserEntity findByEmail(String email);
 	
 	UserEntity findByUserId(String userId);
-	UserEntity findById(long userId);
 
-	@Query(value = "SELECT * FROM users",nativeQuery = true)
-	Page<UserEntity> findAllUsers(Pageable pageableRequest);
+	UserEntity findByPhone(String phone);
+
+	//UserEntity findById(long userId);
+
+	@Query(value = "SELECT u FROM users u where u.firstname LIKE %:search% or u.lastname LIKE %:search%")
+	Page<UserEntity> findAllUsers(Pageable pageableRequest,String search);
 
 
 

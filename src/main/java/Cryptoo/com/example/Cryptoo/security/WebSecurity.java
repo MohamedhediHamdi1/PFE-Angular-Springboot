@@ -2,7 +2,6 @@ package Cryptoo.com.example.Cryptoo.security;
 
 
 import Cryptoo.com.example.Cryptoo.services.UserService;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,19 +24,20 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
+
 
 		http
-		    .cors().and()
-		    .csrf().disable()
-		    .authorizeRequests()
-		    .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
-		    .permitAll()
-			.anyRequest().authenticated()
-			.and().
-			addFilter(getAuthenticationFilter())
-			.addFilter(new AuthorizationFilter(authenticationManager()))
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				.cors().and()
+				.csrf().disable()
+				.authorizeRequests()
+				.antMatchers( SecurityConstants.SIGN_UP_URL,"/ResetPassword/email", "/ResetPassword/code","/ResetPassword/newpassword","/homeui","/contact","/homeui/update","/emailphone/checkemailphone","/emailphone/getemailphone","/emailphone/checkcode","/emailphone/sendcode","/images/{id}","/admin/**")
+				.permitAll()
+				.anyRequest().authenticated()
+				.and().
+				addFilter(getAuthenticationFilter())
+				.addFilter(new AuthorizationFilter(authenticationManager()))
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
 	}
 	
 	
@@ -51,7 +51,5 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception  {
 		
 		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
-	} 
-	
-
+	}
 }

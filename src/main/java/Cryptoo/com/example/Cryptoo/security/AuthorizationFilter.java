@@ -41,29 +41,21 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
     
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(SecurityConstants.HEADER_STRING);
-        
         if (token != null) {
-            
             token = token.replace(SecurityConstants.TOKEN_PREFIX, "");
-
             try {
                 String user = Jwts.parser()
                         .setSigningKey(SecurityConstants.TOKEN_SECRET)
                         .parseClaimsJws(token)
                         .getBody()
                         .getSubject();
-
-            
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
             }
-            
             return null;
             }catch(Exception e){System.out.println("Invalid token");}
         }
-        
         return null;
-
     }
     
 

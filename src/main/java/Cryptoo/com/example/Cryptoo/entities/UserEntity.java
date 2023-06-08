@@ -1,78 +1,40 @@
 package Cryptoo.com.example.Cryptoo.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
 
 @Entity(name="users")
 public class UserEntity implements Serializable{
 
 	private static final long serialVersionUID = -8704195227248241243L;
-	
+
 	@Id
-	private long id;
-	
 	@Column(nullable=false)
 	private String userId;
-	
-
-	
-	@Column(nullable=false, length =20,unique=true)
-	private String username;
-
-	private String country;
-	private String nb_ads;
-	private String options1;
-
-	@NotNull
-	private Boolean admin;
-
-	@Column(nullable=false)
+	@Column(nullable=false, length =50,unique=true)
+	private String email;
 	private String encryptedPassword;
+	private String firstname;
+	private String lastname;
+	private String phone;
 
+	private String imageId;
+	private String country;
+	private String state;
+	private String city;
+	private String zipcode;
+	private String address1;
+	private String address2;
+	private String prestataireID;
+	private boolean membership;
+	private boolean active;
 
+	private int LoginAttempts;
+	private Date lastLoginAttempt;
 
-	@NotNull
-	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-	private ContactEntity contact;
-
-	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-	private PnlEntity pnl;
-
-	@OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-	private HistoryEntity history;
-
-
-
-
-
-
-
-
-	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "users")
-	private Set<GroupEntity> groups = new HashSet<>();
-
-
-
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getUserId() {
 		return userId;
@@ -82,7 +44,13 @@ public class UserEntity implements Serializable{
 		this.userId = userId;
 	}
 
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getEncryptedPassword() {
 		return encryptedPassword;
@@ -92,21 +60,28 @@ public class UserEntity implements Serializable{
 		this.encryptedPassword = encryptedPassword;
 	}
 
-
-	public ContactEntity getContact() {
-		return contact;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setContact(ContactEntity contact) {
-		this.contact = contact;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public Boolean getAdmin() {
-		return admin;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getCountry() {
@@ -117,41 +92,95 @@ public class UserEntity implements Serializable{
 		this.country = country;
 	}
 
-	public String getNb_ads() {
-		return nb_ads;
+	public String getState() {
+		return state;
 	}
 
-	public void setNb_ads(String nb_ads) {
-		this.nb_ads = nb_ads;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public String getOptions1(String options1) {
-		return this.options1;
+	public String getCity() {
+		return city;
 	}
 
-	public void setOptions1(String options1) {
-		this.options1 = options1;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public String getOptions1() {
-		return options1;
+	public String getZipcode() {
+		return zipcode;
 	}
 
-	public PnlEntity getPnl() {
-		return pnl;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
-	public void setPnl(PnlEntity pnl) {
-		this.pnl = pnl;
+	public String getAddress1() {
+		return address1;
 	}
 
-	public HistoryEntity getHistory() {
-		return history;
+	public void setAddress1(String address1) {
+		this.address1 = address1;
 	}
 
-	public void setHistory(HistoryEntity history) {
-		this.history = history;
+	public String getAddress2() {
+		return address2;
 	}
 
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
 
+	public String getPrestataireID() {
+		return prestataireID;
+	}
+
+	public void setPrestataireID(String prestataireID) {
+		this.prestataireID = prestataireID;
+	}
+
+	public boolean getMembership() {
+		return membership;
+	}
+
+	public void setMembership(boolean membership) {
+		this.membership = membership;
+	}
+
+	public boolean isMembership() {
+		return membership;
+	}
+
+	public int getLoginAttempts() {
+		return LoginAttempts;
+	}
+
+	public void setLoginAttempts(int loginAttempts) {
+		LoginAttempts = loginAttempts;
+	}
+
+	public Date getLastLoginAttempt() {
+		return lastLoginAttempt;
+	}
+
+	public void setLastLoginAttempt(Date lastLoginAttempt) {
+		this.lastLoginAttempt = lastLoginAttempt;
+	}
+
+	public String getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 }
